@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>StatLynk | Premium Real Estate Solutions</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">tailwind.config = {darkMode: "class", theme: {extend: {colors: {"on-secondary-container": "#003883", "status-success": "#16A34A", "on-primary-fixed": "#00164e", "surface-container-high": "#dce9ff", "tertiary-container": "#6c748b", "surface-container-low": "#eff4ff", "primary-container": "#326bff", tertiary: "#545c72", "outline-variant": "#c3c5d8", "on-tertiary-fixed": "#131b2e", "error-container": "#ffdad6", outline: "#737687", "surface-container-highest": "#d3e4fe", "on-tertiary": "#ffffff", "primary-fixed": "#dce1ff", "surface-container": "#e5eeff", "inverse-on-surface": "#eaf1ff", "on-secondary-fixed-variant": "#044298", "on-primary": "#ffffff", "status-info": "#2563EB", "inverse-primary": "#b5c4ff", "text-muted": "#6B7280", "on-tertiary-container": "#fefcff", "on-primary-container": "#00041a", "inverse-surface": "#213145", "on-background": "#0b1c30", "on-error-container": "#93000a", "primary-fixed-dim": "#b5c4ff", "secondary-container": "#7ba4ff", "tertiary-fixed-dim": "#bec6e0", "surface-bright": "#f8f9ff", "on-surface": "#0b1c30", "surface-tint": "#0050e2", "on-tertiary-fixed-variant": "#3f465c", primary: "#0050e2", "secondary-fixed": "#d9e2ff", surface: "#f8f9ff", "on-primary-fixed-variant": "#003cad", "surface-white": "#FFFFFF", error: "#ba1a1a", "on-surface-variant": "#434655", "tertiary-fixed": "#dae2fd", "surface-container-lowest": "#ffffff", secondary: "#2d5bb1", "on-secondary-fixed": "#001944", background: "#f8f9ff", "secondary-fixed-dim": "#afc6ff", "surface-dim": "#cbdbf5", "on-secondary": "#ffffff", "surface-variant": "#d3e4fe", "on-error": "#ffffff"}, borderRadius: {DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px"}, spacing: {"margin-desktop": "40px", "stack-sm": "4px", "container-max": "1280px", "stack-md": "12px", "stack-lg": "24px", gutter: "16px", "margin-mobile": "16px", base: "8px", "container-margin": "24px"}, fontFamily: {"display-lg": ["Hanken Grotesk"], "headline-lg": ["Hanken Grotesk"], "body-md": ["Hanken Grotesk"], "body-lg": ["Hanken Grotesk"], "body-sm": ["Hanken Grotesk"], "label-sm": ["Hanken Grotesk"], "headline-md": ["Hanken Grotesk"], "label-md": ["Hanken Grotesk"], "headline-sm": ["Hanken Grotesk"], "headline-lg-mobile": ["Hanken Grotesk"]}, fontSize: {"display-lg": ["48px", {lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "700"}], "headline-lg": ["32px", {lineHeight: "40px", letterSpacing: "-0.02em", fontWeight: "700"}], "body-md": ["16px", {lineHeight: "24px", fontWeight: "400"}], "body-lg": ["18px", {lineHeight: "28px", fontWeight: "400"}], "body-sm": ["14px", {lineHeight: "20px", fontWeight: "400"}], "label-sm": ["12px", {lineHeight: "14px", letterSpacing: "0.02em", fontWeight: "500"}], "headline-md": ["24px", {lineHeight: "32px", letterSpacing: "-0.01em", fontWeight: "600"}], "label-md": ["14px", {lineHeight: "16px", letterSpacing: "0.01em", fontWeight: "600"}], "headline-sm": ["20px", {lineHeight: "28px", fontWeight: "600"}], "headline-lg-mobile": ["24px", {lineHeight: "32px", letterSpacing: "-0.01em", fontWeight: "700"}]}}}};</script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hero-gradient {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('image-hero-bg');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="bg-background font-body-md text-on-background">
+<!-- TopNavBar -->
+<nav class="sticky top-0 z-50 flex justify-between items-center h-20 px-margin-desktop w-full max-w-container-max mx-auto bg-surface-white shadow-md">
+<div class="flex items-center gap-gutter">
+<h1 class="font-display-lg text-headline-md font-black text-primary">StatLynk</h1>
+<div class="hidden md:flex gap-8 items-center h-full">
+<a class="text-primary border-b-2 border-primary pb-1 font-bold font-body-md text-body-md cursor-pointer active:scale-95 transition-transform" href="#">Buy</a>
+<a class="text-secondary hover:text-primary transition-colors font-body-md text-body-md cursor-pointer active:scale-95" href="#">Rent</a>
+<a class="text-secondary hover:text-primary transition-colors font-body-md text-body-md cursor-pointer active:scale-95" href="#">Sell</a>
+<a class="text-secondary hover:text-primary transition-colors font-body-md text-body-md cursor-pointer active:scale-95" href="#">Projects</a>
+<a class="text-secondary hover:text-primary transition-colors font-body-md text-body-md cursor-pointer active:scale-95" href="#">Dealers</a>
+</div>
+</div>
+<div class="flex items-center gap-stack-md">
+<button class="bg-primary text-on-primary px-6 py-2.5 rounded-lg font-label-md text-label-md hover:bg-primary-container transition-colors shadow-md">Post Property</button>
+<div class="w-10 h-10 rounded-full overflow-hidden border border-outline-variant cursor-pointer">
+<img alt="User profile avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBS83pL8pPuHcY82_JcrRJHYVfrWj1g0fuk64tbipTN4iROEWgQrbuHZypC1iDaeY1lkKAZxUluVDcQklJxGwa6LsafBq792fG1cNUCVkm4p7z6kL-O_ZJFKLQCl9ip5o7_XYGh5G3DfKvKufAQ01VTfVUmbl17-UGwzjkDx10vBHEyshao7dU07KugT8qbjXdcquKhrnPl7A5yqsYnjE4izmCHGng10KvUVmhEw2iEuNvwIH-rzkYyVtVWrZ6KaXQup0XBEfpFtp5f"/>
+</div>
+</div>
+</nav>
+<!-- Hero Search Section -->
+<header class="relative w-full h-[540px] flex items-center justify-center px-margin-desktop mb-stack-lg">
+<div class="absolute inset-0 z-0 overflow-hidden">
+<img class="w-full h-full object-cover brightness-[0.7]" data-alt="A wide angle architectural photograph of luxury modern high-rise apartments at sunset. The lighting is warm and golden, reflecting off sleek glass facades. The overall aesthetic is professional, corporate, and aspirational, utilizing a clean light-mode palette with subtle deep red architectural accents to match a premium real estate brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkRGzCoSZIs9QqD1Cupk1XIrGlgvwwVLJ9-t5DS101XT1kq_LBGpNet7VCkVQs6RzlT3Yw5tLqAxp7rlGHKuvDbFll1kaKtPBzMkMY_yLILz07ylcYgITJjG94MfhhFsaI81ecidiAMCYHwzkz9PsfFjU83fCtnO-qMFSCFnvzpeN-tfS-aePladcdflGUzqPfgFanlAE-lq2r3XWplUG1OfLo_xHO4-kepzUL6pUxl-OVGmNbJ6Hu-71qV-b81wQtNwKB0Ro_m8P3"/>
+</div>
+<div class="relative z-10 w-full max-w-4xl text-center">
+<h2 class="font-display-lg text-display-lg text-white mb-stack-lg drop-shadow-lg">Find Your Perfect Address</h2>
+<!-- Search Tabs & Bar -->
+<div class="bg-white rounded-xl shadow-2xl p-4 md:p-6 mx-auto">
+<div class="flex gap-stack-md mb-6 border-b border-surface-container">
+<button class="pb-3 px-4 text-primary border-b-2 border-primary font-bold transition-all">Buy</button>
+<button class="pb-3 px-4 text-secondary hover:text-primary transition-all">Rent</button>
+<button class="pb-3 px-4 text-secondary hover:text-primary transition-all">Projects</button>
+</div>
+<div class="flex flex-col md:flex-row gap-4 items-center">
+<div class="flex-1 w-full flex items-center bg-surface-container-low rounded-lg px-4 py-3 border border-outline-variant">
+<span class="material-symbols-outlined text-text-muted mr-3">location_on</span>
+<select class="bg-transparent border-none focus:ring-0 text-on-surface font-body-md w-32">
+<option>Mumbai</option>
+<option>Delhi NCR</option>
+<option>Bangalore</option>
+<option>Pune</option>
+</select>
+<div class="h-6 w-[1px] bg-outline-variant mx-4"></div>
+<span class="material-symbols-outlined text-text-muted mr-3">search</span>
+<input class="bg-transparent border-none focus:ring-0 w-full text-on-surface font-body-md" placeholder="Search by locality or builder..." type="text"/>
+</div>
+<button class="w-full md:w-auto bg-primary text-on-primary px-10 py-4 rounded-lg font-headline-md flex items-center justify-center gap-2 hover:bg-primary-container transition-transform active:scale-95 shadow-md">
+                        Search
+                    </button>
+</div>
+</div>
+</div>
+</header>
+<main class="max-w-container-max mx-auto px-margin-desktop py-stack-lg">
+<!-- Property Categories -->
+<section class="mb-stack-lg">
+<div class="flex justify-between items-center mb-stack-md">
+<h3 class="font-headline-lg text-headline-lg">Browse by Category</h3>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-gutter">
+<div class="bg-surface-white border border-outline-variant p-gutter rounded-xl flex flex-col items-center gap-stack-sm hover:shadow-lg transition-all cursor-pointer group">
+<div class="w-16 h-16 rounded-full bg-surface-container-low flex items-center justify-center group-hover:bg-primary-container transition-colors">
+<span class="material-symbols-outlined text-primary group-hover:text-on-primary text-3xl">apartment</span>
+</div>
+<span class="font-label-md text-label-md">Apartment</span>
+</div>
+<div class="bg-surface-white border border-outline-variant p-gutter rounded-xl flex flex-col items-center gap-stack-sm hover:shadow-lg transition-all cursor-pointer group">
+<div class="w-16 h-16 rounded-full bg-surface-container-low flex items-center justify-center group-hover:bg-primary-container transition-colors">
+<span class="material-symbols-outlined text-primary group-hover:text-on-primary text-3xl">home</span>
+</div>
+<span class="font-label-md text-label-md">House/Villa</span>
+</div>
+<div class="bg-surface-white border border-outline-variant p-gutter rounded-xl flex flex-col items-center gap-stack-sm hover:shadow-lg transition-all cursor-pointer group">
+<div class="w-16 h-16 rounded-full bg-surface-container-low flex items-center justify-center group-hover:bg-primary-container transition-colors">
+<span class="material-symbols-outlined text-primary group-hover:text-on-primary text-3xl">landscape</span>
+</div>
+<span class="font-label-md text-label-md">Plot</span>
+</div>
+<div class="bg-surface-white border border-outline-variant p-gutter rounded-xl flex flex-col items-center gap-stack-sm hover:shadow-lg transition-all cursor-pointer group">
+<div class="w-16 h-16 rounded-full bg-surface-container-low flex items-center justify-center group-hover:bg-primary-container transition-colors">
+<span class="material-symbols-outlined text-primary group-hover:text-on-primary text-3xl">corporate_fare</span>
+</div>
+<span class="font-label-md text-label-md">Commercial</span>
+</div>
+</div>
+</section>
+<!-- Featured Properties -->
+<section class="mb-stack-lg">
+<div class="flex justify-between items-end mb-stack-md">
+<div>
+<h3 class="font-headline-lg text-headline-lg">Featured Properties</h3>
+<p class="text-text-muted font-body-md">Handpicked premium listings for you</p>
+</div>
+<button class="text-primary font-label-md flex items-center gap-1 hover:underline">View All <span class="material-symbols-outlined text-sm">arrow_forward</span></button>
+</div><div class="flex items-center gap-3 overflow-x-auto pb-4 mb-stack-md scrollbar-hide no-scrollbar">
+<button class="flex-shrink-0 px-6 py-2 rounded-full bg-primary text-on-primary font-label-md transition-all active:scale-95">All</button>
+<button class="flex-shrink-0 px-6 py-2 rounded-full bg-surface-container text-secondary font-label-md hover:bg-surface-container-high transition-all active:scale-95">Apartment</button>
+<button class="flex-shrink-0 px-6 py-2 rounded-full bg-surface-container text-secondary font-label-md hover:bg-surface-container-high transition-all active:scale-95">House/Villa</button>
+<button class="flex-shrink-0 px-6 py-2 rounded-full bg-surface-container text-secondary font-label-md hover:bg-surface-container-high transition-all active:scale-95">Plot</button>
+<button class="flex-shrink-0 px-6 py-2 rounded-full bg-surface-container text-secondary font-label-md hover:bg-surface-container-high transition-all active:scale-95">Commercial</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Property Card 1 -->
+<article class="bg-surface-white rounded-xl border border-outline-variant overflow-hidden hover:shadow-2xl transition-all group cursor-pointer">
+<div class="relative h-56 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A high-end luxury villa with a private swimming pool at dusk. The architecture is contemporary with clean lines and floor-to-ceiling glass windows. Warm indoor lighting contrasts with the deep blue twilight sky. The scene is elegant and peaceful, reflecting a high-net-worth real estate aesthetic with professional maroon branding accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCKPsfXOboTtbgn-rDnj0wewPn22bs-dN9r2f6CYBLiyruuQVAi_cHwDY0LWTS0KIIWqhSE5njv2Vt5nFCEp1U3NrTpoeMBdA1Q7JjWS5pqwU6GmZ8D6gnCH2prQDlq37xztwM89ACu33UMpA5-WIokPoCUoZCrNoFSZlewrVvM8nQlE8UVcE2eEpuxQeKBUpPdbTPJhC3sRn52qQslY48cf9HQ_yUlu-JQgWhUZH48iUgmdYfecf_1EAPGc6V9xo_EL9a5wsvCpql"/>
+<div class="absolute top-4 left-4 bg-status-success/90 text-white px-3 py-1 rounded-full text-label-sm font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">verified</span> RERA Approved
+                        </div>
+<button class="absolute top-4 right-4 bg-white/80 p-2 rounded-full hover:bg-white transition-colors">
+<span class="material-symbols-outlined text-primary">favorite</span>
+</button>
+</div>
+<div class="p-stack-md">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-headline-md text-headline-md truncate">Elysium Residency</h4>
+<span class="text-primary font-display-lg text-headline-md">₹2.4 Cr</span>
+</div>
+<p class="text-text-muted text-body-sm flex items-center gap-1 mb-4">
+<span class="material-symbols-outlined text-sm">location_on</span> Worli, Mumbai
+                        </p>
+<div class="flex justify-between border-y border-surface-container py-3 mb-4">
+<div class="text-center">
+<p class="text-text-muted text-label-sm">Config</p>
+<p class="font-label-md">3 BHK</p>
+</div>
+<div class="text-center">
+<p class="text-text-muted text-label-sm">Area</p>
+<p class="font-label-md">1,850 sq.ft</p>
+</div>
+<div class="text-center">
+<p class="text-text-muted text-label-sm">Status</p>
+<p class="font-label-md text-status-success">Ready</p>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded bg-surface-container flex items-center justify-center font-bold text-primary text-xs">P</div>
+<span class="text-label-md font-semibold">Prestige Group</span>
+</div>
+<button class="border border-primary text-primary px-4 py-1.5 rounded-lg text-label-sm font-bold hover:bg-primary hover:text-white transition-all">Details</button>
+</div>
+</div>
+</article>
+<!-- Property Card 2 -->
+<article class="bg-surface-white rounded-xl border border-outline-variant overflow-hidden hover:shadow-2xl transition-all group cursor-pointer">
+<div class="relative h-56 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A modern penthouse apartment interior featuring a spacious living room with panoramic city views through massive windows. The decor is minimalist and expensive, with marble floors and designer furniture. Soft morning light fills the room, creating a sophisticated and airy corporate atmosphere consistent with high-end real estate marketing." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1w7OGZPVsQX9wnV_iLwdQxTvLrKvBj-E13hnm6rABb-HrVYfmshZBNU3YO4G4gpMOx4tCCawVoLBsxaWCceeuJfay7FsNeoRBlE1Bn3W6VtLTDmMas2Swc4SjQP7kggHLE2zxvUXAMoooankHXL4RbuOeYppnTHgudCSFO_OszwXor57LD50uPbnD4Ww8m_ZiGJpyxAEoUhN_D4LlHtynQYLGqDV7z_dEgqjRFOPzIAFOkqomG5J3SqOu2kVAcPQN3NH-013QKBZ6"/>
+<div class="absolute top-4 left-4 bg-status-success/90 text-white px-3 py-1 rounded-full text-label-sm font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">verified</span> RERA Approved
+                        </div>
+</div>
+<div class="p-stack-md">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-headline-md text-headline-md truncate">Skyline Towers</h4>
+<span class="text-primary font-display-lg text-headline-md">₹4.8 Cr</span>
+</div>
+<p class="text-text-muted text-body-sm flex items-center gap-1 mb-4">
+<span class="material-symbols-outlined text-sm">location_on</span> Gurgaon, Sector 54
+                        </p>
+<div class="flex justify-between border-y border-surface-container py-3 mb-4">
+<div class="text-center">
+<p class="text-text-muted text-label-sm">Config</p>
+<p class="font-label-md">4 BHK</p>
+</div>
+<div class="text-center">
+<p class="text-text-muted text-label-sm">Area</p>
+<p class="font-label-md">3,200 sq.ft</p>
+</div>
+<div class="text-center">
+<p class="text-text-muted text-label-sm">Status</p>
+<p class="font-label-md text-status-info">Under Const.</p>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded bg-surface-container flex items-center justify-center font-bold text-primary text-xs">D</div>
+<span class="text-label-md font-semibold">DLF Limited</span>
+</div>
+<button class="border border-primary text-primary px-4 py-1.5 rounded-lg text-label-sm font-bold hover:bg-primary hover:text-white transition-all">Details</button>
+</div>
+</div>
+</article>
+<!-- Property Card 3 -->
+<article class="bg-surface-white rounded-xl border border-outline-variant overflow-hidden hover:shadow-2xl transition-all group cursor-pointer">
+<div class="relative h-56 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A luxurious suburban family home with a manicured front lawn and professional landscaping. The house features a mix of brick and siding with large windows and an inviting entryway. Bright, natural daylight creates a welcoming and secure feeling. The visual style is crisp and high-resolution, evoking trust and quality in a corporate real estate context." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBt6bK0UVb3sc9V12pJuZY1x7JC3ZkdZIdUNc9faorZDZBZ47KEHTNt1TnJbPIBQOtmMaIxq-L-pUiJbuh5ytiSQqz9tObMwmiZaNdnWTn8rlr-633tnc2UcLIO8MVz9glmg1SvpKBcAttSXGkfZpX_8fN5y5WHwCJ6KAsinV1QkIGLHeHwIa9nygmd_E9nvVpWWxi9Eex3268ml6kOg42baOYlWQ7k8-6-EzxxQM5oOsqy4YlSPkc0XSQwKXQt2GoHJ7BWreiMBdjf"/>
+<div class="absolute top-4 left-4 bg-status-success/90 text-white px-3 py-1 rounded-full text-label-sm font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">verified</span> RERA Approved
+                        </div>
+</div>
+<div class="p-stack-md">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-headline-md text-headline-md truncate">Park View Estates</h4>
+<span class="text-primary font-display-lg text-headline-md">₹1.2 Cr</span>
+</div>
+<p class="text-text-muted text-body-sm flex items-center gap-1 mb-4">
+<span class="material-symbols-outlined text-sm">location_on</span> Electronic City, Bangalore
+                        </p>
+<div class="flex justify-between border-y border-surface-container py-3 mb-4">
+<div class="text-center">
+<p class="text-text-muted text-label-sm">Config</p>
+<p class="font-label-md">2.5 BHK</p>
+</div>
+<div class="text-center">
+<p class="text-text-muted text-label-sm">Area</p>
+<p class="font-label-md">1,450 sq.ft</p>
+</div>
+<div class="text-center">
+<p class="text-text-muted text-label-sm">Status</p>
+<p class="font-label-md text-status-success">Ready</p>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded bg-surface-container flex items-center justify-center font-bold text-primary text-xs">T</div>
+<span class="text-label-md font-semibold">Tata Housing</span>
+</div>
+<button class="border border-primary text-primary px-4 py-1.5 rounded-lg text-label-sm font-bold hover:bg-primary hover:text-white transition-all">Details</button>
+</div>
+</div>
+</article>
+</div>
+</section><section class="mb-stack-lg">
+<div class="flex justify-between items-end mb-stack-md">
+<div>
+<h3 class="font-headline-lg text-headline-lg">Projects based on your location</h3>
+<p class="text-text-muted font-body-md">Exclusive premium developments handpicked for you</p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Sponsored Card 1 -->
+<article class="bg-surface-white rounded-xl border border-outline-variant overflow-hidden hover:shadow-2xl transition-all group cursor-pointer">
+<div class="relative h-64 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="An architectural visualization of a futuristic luxury apartment complex with vertical gardens and glass balconies, set against a clear blue sky." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1_qR7y1s1G1X1E1G1B1C1D1E1F1G1H1I1J1K1L1M1N1O1P1Q1R1S1T1U1V1W1X1Y1Z1a1b1c1d1e1f1g1h1i1j1k1l1m1n1o1p1q1r1s1t1u1v1w1x1y1z"/>
+<div class="absolute top-4 left-4 bg-primary text-on-primary px-3 py-1 rounded-full text-label-sm font-bold flex items-center gap-1 shadow-md">
+<span class="material-symbols-outlined text-[14px]">verified</span> Sponsored
+                </div>
+</div>
+<div class="p-stack-md">
+<h4 class="font-headline-md text-headline-md truncate mb-1">Grand Orchid Towers</h4>
+<p class="text-text-muted text-body-sm mb-4">By Lodha Group</p>
+<div class="flex justify-between items-center">
+<div class="flex flex-col">
+<span class="text-text-muted text-label-sm">Starting Price</span>
+<span class="text-primary font-display-lg text-headline-md">₹1.8 Cr - 4.5 Cr</span>
+</div>
+<button class="bg-primary text-on-primary px-4 py-2 rounded-lg text-label-sm font-bold hover:bg-primary-container transition-all shadow-sm">View Plan</button>
+</div>
+</div>
+</article>
+<!-- Sponsored Card 2 -->
+<article class="bg-surface-white rounded-xl border border-outline-variant overflow-hidden hover:shadow-2xl transition-all group cursor-pointer">
+<div class="relative h-64 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A modern waterfront residential development with sleek minimalist architecture and private boat docks." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1_qR7y1s1G1X1E1G1B1C1D1E1F1G1H1I1J1K1L1M1N1O1P1Q1R1S1T1U1V1W1X1Y1Z1a1b1c1d1e1f1g1h1i1j1k1l1m1n1o1p1q1r1s1t1u1v1w1x1y1z"/>
+<div class="absolute top-4 left-4 bg-primary text-on-primary px-3 py-1 rounded-full text-label-sm font-bold flex items-center gap-1 shadow-md">
+<span class="material-symbols-outlined text-[14px]">verified</span> Sponsored
+                </div>
+</div>
+<div class="p-stack-md">
+<h4 class="font-headline-md text-headline-md truncate mb-1">The Azure Residences</h4>
+<p class="text-text-muted text-body-sm mb-4">By Tata Housing</p>
+<div class="flex justify-between items-center">
+<div class="flex flex-col">
+<span class="text-text-muted text-label-sm">Starting Price</span>
+<span class="text-primary font-display-lg text-headline-md">₹2.2 Cr - 5.8 Cr</span>
+</div>
+<button class="bg-primary text-on-primary px-4 py-2 rounded-lg text-label-sm font-bold hover:bg-primary-container transition-all shadow-sm">View Plan</button>
+</div>
+</div>
+</article>
+<!-- Sponsored Card 3 -->
+<article class="bg-surface-white rounded-xl border border-outline-variant overflow-hidden hover:shadow-2xl transition-all group cursor-pointer">
+<div class="relative h-64 overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="An ultra-modern high-rise building with a rooftop infinity pool and panoramic city views." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1_qR7y1s1G1X1E1G1B1C1D1E1F1G1H1I1J1K1L1M1N1O1P1Q1R1S1T1U1V1W1X1Y1Z1a1b1c1d1e1f1g1h1i1j1k1l1m1n1o1p1q1r1s1t1u1v1w1x1y1z"/>
+<div class="absolute top-4 left-4 bg-primary text-on-primary px-3 py-1 rounded-full text-label-sm font-bold flex items-center gap-1 shadow-md">
+<span class="material-symbols-outlined text-[14px]">verified</span> Sponsored
+                </div>
+</div>
+<div class="p-stack-md">
+<h4 class="font-headline-md text-headline-md truncate mb-1">Apex Sky Gardens</h4>
+<p class="text-text-muted text-body-sm mb-4">By DLF Limited</p>
+<div class="flex justify-between items-center">
+<div class="flex flex-col">
+<span class="text-text-muted text-label-sm">Starting Price</span>
+<span class="text-primary font-display-lg text-headline-md">₹3.5 Cr - 8.0 Cr</span>
+</div>
+<button class="bg-primary text-on-primary px-4 py-2 rounded-lg text-label-sm font-bold hover:bg-primary-container transition-all shadow-sm">View Plan</button>
+</div>
+</div>
+</article>
+</div>
+</section>
+<!-- Verified Dealers -->
+<section class="mb-stack-lg">
+<h3 class="font-headline-lg text-headline-lg mb-stack-md">Verified Property Experts</h3>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<div class="bg-surface-white p-gutter border border-outline-variant rounded-xl flex flex-col items-center text-center hover:shadow-lg transition-all">
+<div class="relative mb-stack-md">
+<img alt="Agent profile" class="w-24 h-24 rounded-full object-cover border-2 border-primary" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCft_OUcqbBOhzFTHfR3Dkv5jclQk4TReRIcrxDb_4fnjJyaoHi1lakjD2MlC7Ti7F3Eqy4UbvSDwZjlsl8hP1XPNi4mORKTEFfamnYZuovhVolsZ5arq0UIscaFWOQ81BZtqOj2aiDNFIlfqjEKHprM9k3EKiJpofUOlylQ17CufrT8w2Ak9ARaNpEVr0ih0iVssdG77Ap-bJO1UJGd28WHfDRU9_Bv_1vwAo6C_vZQBReaYeoziwzaUxoIdxJMDB0FSgyyXQd8u64"/>
+<div class="absolute bottom-0 right-0 bg-status-info text-white rounded-full p-1 border-2 border-white">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+</div>
+</div>
+<h5 class="font-label-md text-headline-md mb-1">Rajesh Malhotra</h5>
+<p class="text-text-muted text-body-sm mb-4">Prime Realty Associates</p>
+<span class="bg-surface-container-low text-primary px-3 py-1 rounded-full text-label-sm font-bold border border-primary/20">Legacy Agent</span>
+</div>
+<div class="bg-surface-white p-gutter border border-outline-variant rounded-xl flex flex-col items-center text-center hover:shadow-lg transition-all">
+<div class="relative mb-stack-md">
+<img alt="Agent profile" class="w-24 h-24 rounded-full object-cover border-2 border-primary" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBybE8G7rbdZEr6g0NghSFKFe93oqUSydU9_ikIpQBAf4NlPNBTpIPvCxs8D72nztEZBY9zCNxPXql135W-VJVePj6NbCgAbCT4amAlJKm85yHgY42QDjELRxrErRUu-vrOu0MviMtCakUSPCCqELj_e_tKo5np_p1ZEjK5wxWj7c4WgzFtlXuHbf5n6pnnjAgzvD7_IHtf7fEGlwTLw3xg3fuexh1NkUe1l1gLV4BB7esNufq_5cnKCQJF9jvOLwQpO7UUonWUeLYg"/>
+<div class="absolute bottom-0 right-0 bg-status-info text-white rounded-full p-1 border-2 border-white">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+</div>
+</div>
+<h5 class="font-label-md text-headline-md mb-1">Ananya Sharma</h5>
+<p class="text-text-muted text-body-sm mb-4">Elite Properties Gurgaon</p>
+<span class="bg-surface-container-low text-primary px-3 py-1 rounded-full text-label-sm font-bold border border-primary/20">Top Rated</span>
+</div>
+<div class="bg-surface-white p-gutter border border-outline-variant rounded-xl flex flex-col items-center text-center hover:shadow-lg transition-all">
+<div class="relative mb-stack-md">
+<img alt="Agent profile" class="w-24 h-24 rounded-full object-cover border-2 border-primary" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-K5yVjSSSwSiFiGDXVhlfwMsfesYmp1YWZu1yeHb5OilBIhtNGp4FrGwMsanQgKvvAUYAVch3uQfRk0_nDDv9yzi6y7rLBronepsl9uc6PZA9fLbWTLX0ytA_nbg7tQ_oD1TYpU3m3h4ndr7NiuH11XKPxNkrYcANxNNsQedh-XtMeoxk3kB9bYhAqDhSj71sYgV373DgqEyiN-hzT7s8RC053jvmP3I-54FZ4ng3SGnq7gTau75MUmE-IWpPlLc7246F510v7VnD"/>
+<div class="absolute bottom-0 right-0 bg-status-info text-white rounded-full p-1 border-2 border-white">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+</div>
+</div>
+<h5 class="font-label-md text-headline-md mb-1">Vikram Singh</h5>
+<p class="text-text-muted text-body-sm mb-4">Urban Nest Solutions</p>
+<span class="bg-surface-container-low text-primary px-3 py-1 rounded-full text-label-sm font-bold border border-primary/20">Legacy Agent</span>
+</div>
+<div class="bg-surface-white p-gutter border border-outline-variant rounded-xl flex flex-col items-center text-center hover:shadow-lg transition-all">
+<div class="relative mb-stack-md">
+<img alt="Agent profile" class="w-24 h-24 rounded-full object-cover border-2 border-primary" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPSWJ7bfGwuYi1Ohj6nVyq-TVarHudt_c0l_vs7ws6IVfAgoPYdk5IYMLGoYTVTsRg6XCRJ3VXB9FVSWPFKZ2BpNFmoMokDqejYwBmOUpFrr6qJky_wuZGhlOQWHw_iG1A0MdvYNZq0rdWVg4ctYdUJh5ObS66B-ffpkvGGHWH-bc8HkIHjyVr6ybda9Bzkv6UHLK1-8dQJj2KUXXKx-VXNoQ7PGrMhr5tI-xnDdhw3dF_o2o1qWz4CeGHZO2wVukqDvlQA-2KC3vW"/>
+<div class="absolute bottom-0 right-0 bg-status-info text-white rounded-full p-1 border-2 border-white">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+</div>
+</div>
+<h5 class="font-label-md text-headline-md mb-1">Priya Kapoor</h5>
+<p class="text-text-muted text-body-sm mb-4">Signature Homes</p>
+<span class="bg-surface-container-low text-primary px-3 py-1 rounded-full text-label-sm font-bold border border-primary/20">Top Rated</span>
+</div>
+</div>
+</section>
+<!-- Top Builders -->
+<section class="mb-stack-lg">
+<h3 class="font-headline-lg text-headline-lg mb-stack-md">Leading Developers</h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="flex items-center gap-4 p-4 border border-outline-variant rounded-xl hover:bg-surface-container-low transition-colors cursor-pointer">
+<div class="w-16 h-16 bg-white border border-surface-container flex items-center justify-center p-2 rounded-lg">
+<span class="font-black text-primary text-xl">LODHA</span>
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-1">
+<h6 class="font-label-md">Lodha Group</h6>
+<span class="material-symbols-outlined text-status-info text-[16px]">verified</span>
+</div>
+<p class="text-text-muted text-body-sm">45 Projects • 12 Ongoing</p>
+</div>
+</div>
+<div class="flex items-center gap-4 p-4 border border-outline-variant rounded-xl hover:bg-surface-container-low transition-colors cursor-pointer">
+<div class="w-16 h-16 bg-white border border-surface-container flex items-center justify-center p-2 rounded-lg">
+<span class="font-black text-primary text-xl">TATA</span>
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-1">
+<h6 class="font-label-md">Tata Housing</h6>
+<span class="material-symbols-outlined text-status-info text-[16px]">verified</span>
+</div>
+<p class="text-text-muted text-body-sm">38 Projects • 8 Ongoing</p>
+</div>
+</div>
+<div class="flex items-center gap-4 p-4 border border-outline-variant rounded-xl hover:bg-surface-container-low transition-colors cursor-pointer">
+<div class="w-16 h-16 bg-white border border-surface-container flex items-center justify-center p-2 rounded-lg">
+<span class="font-black text-primary text-xl">DLF</span>
+</div>
+<div class="flex-1">
+<div class="flex items-center gap-1">
+<h6 class="font-label-md">DLF Limited</h6>
+<span class="material-symbols-outlined text-status-info text-[16px]">verified</span>
+</div>
+<p class="text-text-muted text-body-sm">62 Projects • 15 Ongoing</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-stack-lg px-margin-desktop max-w-container-max mx-auto border-t border-outline-variant grid grid-cols-1 md:grid-cols-4 gap-gutter bg-surface-container-lowest">
+<div class="col-span-1">
+<h2 class="font-display-lg text-headline-md font-bold text-primary mb-stack-md">StatLynk</h2>
+<p class="text-text-muted text-body-sm mb-stack-md">Simplifying your property journey with data-driven insights and verified listings since 2012.</p>
+<div class="flex gap-stack-md">
+<span class="material-symbols-outlined text-primary cursor-pointer hover:scale-110 transition-transform">face_nod</span>
+<span class="material-symbols-outlined text-primary cursor-pointer hover:scale-110 transition-transform">share</span>
+<span class="material-symbols-outlined text-primary cursor-pointer hover:scale-110 transition-transform">mail</span>
+</div>
+</div>
+<div>
+<h6 class="font-label-md text-primary mb-stack-md">Quick Links</h6>
+<ul class="flex flex-col gap-2">
+<li class=""><a class="text-text-muted hover:text-primary transition-all font-body-sm" href="#">About Us</a></li>
+<li class=""><a class="text-text-muted hover:text-primary transition-all font-body-sm" href="#">Careers</a></li>
+<li class=""><a class="text-text-muted hover:text-primary transition-all font-body-sm" href="#">Privacy Policy</a></li>
+<li class=""><a class="text-text-muted hover:text-primary transition-all font-body-sm" href="#">Terms of Service</a></li>
+</ul>
+</div>
+<div>
+<h6 class="font-label-md text-primary mb-stack-md">Services</h6>
+<ul class="flex flex-col gap-2">
+<li class=""><a class="text-text-muted hover:text-primary transition-all font-body-sm" href="#">Property Management</a></li>
+<li class=""><a class="text-text-muted hover:text-primary transition-all font-body-sm" href="#">Legal Consultation</a></li>
+<li class=""><a class="text-text-muted hover:text-primary transition-all font-body-sm" href="#">Home Loans</a></li>
+<li class=""><a class="text-text-muted hover:text-primary transition-all font-body-sm" href="#">Interior Design</a></li>
+</ul>
+</div>
+<div>
+<h6 class="font-label-md text-primary mb-stack-md">Newsletter</h6>
+<p class="text-text-muted text-body-sm mb-4">Stay updated with market trends.</p>
+<div class="flex gap-2">
+<input class="bg-surface-container border border-outline-variant rounded-lg px-3 py-2 w-full focus:ring-primary focus:border-primary text-body-sm" placeholder="Email Address" type="email"/>
+<button class="bg-primary text-on-primary p-2 rounded-lg"><span class="material-symbols-outlined">send</span></button>
+</div>
+</div>
+<div class="col-span-full border-t border-surface-container mt-stack-lg pt-stack-md flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-text-muted text-body-sm">© 2024 StatLynk Real Estate Solutions. All rights reserved.</p>
+<div class="flex gap-stack-md">
+<img class="h-8 grayscale hover:grayscale-0 transition-all cursor-pointer" data-alt="A small, stylized digital icon representing Google Play Store for mobile app downloads, rendered in a clean, modern vector style with primary brand colors." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkoE1OoyAsOov7I1fqFHcEZTedWZB066Sv_CEdWnquxUXqa3tm28pEbGtBqRic96QkPYqvdo1fs8oKC-Hxr8B1dg5YFgrVTb9Psi_xS9Kl83SyM1PxAkFLdl8_C7FpSulcZRNnlAJjp-OzfkLsEdUCF4OeeO2PMPuaEuD0MCJ8Zir8X1HPBEbBl5bKXGJrOidFbDq65V9b6WAgUbmAcH_jcrCYFz_uRSrfHk9WiYd_lQ4hkW8q5kEbtJj2d7sy2ETV8OFRJ_hyAg9r"/>
+<img class="h-8 grayscale hover:grayscale-0 transition-all cursor-pointer" data-alt="A small, stylized digital icon representing the Apple App Store for mobile app downloads, rendered in a clean, modern vector style with primary brand colors." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAikdED3PkswAeiANAMY3S4zTqlL4GQol74iZdYAheRjxtSimUPZ1QZjwa8AtRQymjbo-MitJuuZNQCCVdYYfcp1I2vrhZPVuliBb-d2IQUV45GJMGn2tdbmKJq7-SVEGjSL5Ub4gZ4A9z9P3BdB8IiBYzgAuST-A7PV8DIQs6tA-bI-kuqzvnyu3quA0hopRMId7lwdAMMwrqC_ta8gUKFpNjbkz-uXjOlBAkdyjiTLEpbvuI_WDCGSEv561XK4LwHQlGnFu9fqlmF"/>
+</div>
+</div>
+</footer>
+<script>
+        // Simple tab switching logic
+        const tabs = document.querySelectorAll('.hero-gradient button');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => {
+                    t.classList.remove('text-primary', 'border-primary', 'border-b-2', 'font-bold');
+                    t.classList.add('text-secondary');
+                });
+                tab.classList.add('text-primary', 'border-primary', 'border-b-2', 'font-bold');
+                tab.classList.remove('text-secondary');
+            });
+        });
+
+        // Search interaction
+        const searchBtn = document.querySelector('header button');
+        searchBtn.addEventListener('click', () => {
+            searchBtn.classList.add('scale-95');
+            setTimeout(() => searchBtn.classList.remove('scale-95'), 150);
+        });
+    </script>
+</body></html>
