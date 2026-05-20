@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>StatLynk Theme Switcher</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f5f7fb;
+      --panel: #ffffff;
+      --panel-muted: #eef2f7;
+      --text: #17202a;
+      --muted: #617082;
+      --line: #d9e0ea;
+      --accent: #0050e2;
+      --accent-strong: #012d1d;
+      --danger: #b20017;
+      --shadow: 0 18px 50px rgba(23, 32, 42, 0.12);
+      --radius: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    button,
+    a {
+      font: inherit;
+    }
+
+    .shell {
+      min-height: 100vh;
+      display: grid;
+      grid-template-rows: auto 1fr;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 20px;
+      align-items: center;
+      padding: 18px 24px;
+      background: rgba(255, 255, 255, 0.94);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(14px);
+    }
+
+    .brand {
+      min-width: 0;
+    }
+
+    .eyebrow {
+      margin: 0 0 4px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(24px, 3vw, 38px);
+      line-height: 1.1;
+      letter-spacing: 0;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 10px;
+    }
+
+    .control,
+    .link-button {
+      min-height: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 9px 14px;
+      color: var(--text);
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 160ms ease, border-color 160ms ease, color 160ms ease, transform 160ms ease;
+    }
+
+    .control:hover,
+    .link-button:hover {
+      border-color: #aeb9c8;
+      transform: translateY(-1px);
+    }
+
+    .control[aria-pressed="true"] {
+      color: #ffffff;
+      background: var(--text);
+      border-color: var(--text);
+    }
+
+    .main {
+      display: grid;
+      grid-template-columns: 320px minmax(0, 1fr);
+      gap: 18px;
+      padding: 18px;
+    }
+
+    .sidebar {
+      align-self: start;
+      position: sticky;
+      top: 95px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: 0 8px 28px rgba(23, 32, 42, 0.06);
+    }
+
+    .panel-header {
+      padding: 14px 14px 0;
+    }
+
+    .panel-title {
+      margin: 0;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .panel-copy {
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .theme-list {
+      display: grid;
+      gap: 10px;
+      padding: 14px;
+    }
+
+    .theme-card {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      align-items: center;
+      padding: 12px;
+      text-align: left;
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+
+    .theme-card:hover {
+      border-color: #aeb9c8;
+    }
+
+    .theme-card.is-active {
+      border-color: var(--accent);
+      box-shadow: inset 0 0 0 1px var(--accent);
+    }
+
+    .theme-select {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 12px;
+      align-items: center;
+      padding: 0;
+      color: inherit;
+      text-align: left;
+      background: transparent;
+      border: 0;
+      cursor: pointer;
+    }
+
+    .swatches {
+      display: flex;
+      width: 48px;
+      height: 48px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+    }
+
+    .swatches span {
+      flex: 1;
+    }
+
+    .theme-name {
+      display: block;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .theme-desc {
+      display: block;
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.35;
+    }
+
+    .open-link {
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .mode-controls {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      padding: 14px;
+    }
+
+    .preview-wrap {
+      min-width: 0;
+      display: grid;
+      gap: 14px;
+    }
+
+    .preview-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 14px;
+    }
+
+    .preview-meta {
+      min-width: 220px;
+    }
+
+    .toolbar-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 10px;
+    }
+
+    .preview-title {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 800;
+    }
+
+    .preview-subtitle {
+      margin: 3px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .viewport {
+      display: grid;
+      place-items: start center;
+      padding: 16px;
+      min-height: calc(100vh - 176px);
+      overflow: auto;
+      background:
+        linear-gradient(90deg, rgba(217, 224, 234, 0.65) 1px, transparent 1px),
+        linear-gradient(rgba(217, 224, 234, 0.65) 1px, transparent 1px);
+      background-size: 24px 24px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+
+    .confirm-note {
+      margin: 0;
+      flex-basis: 100%;
+      color: var(--accent-strong);
+      font-size: 13px;
+      font-weight: 700;
+      text-align: right;
+    }
+
+    .frame-shell {
+      width: 100%;
+      height: calc(100vh - 210px);
+      min-height: 680px;
+      background: #ffffff;
+      border: 1px solid #b9c3d0;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      transition: width 180ms ease, height 180ms ease;
+    }
+
+    .frame-shell.mobile {
+      width: min(390px, 100%);
+      height: 760px;
+      min-height: 760px;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      display: block;
+      border: 0;
+      background: #ffffff;
+    }
+
+    .compare-grid {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(280px, 1fr));
+      gap: 14px;
+    }
+
+    .compare-grid.mobile {
+      grid-template-columns: repeat(3, 390px);
+      justify-content: start;
+    }
+
+    .compare-card {
+      min-width: 0;
+      overflow: hidden;
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: 0 12px 34px rgba(23, 32, 42, 0.08);
+    }
+
+    .compare-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 11px 12px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .compare-name {
+      margin: 0;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .compare-frame {
+      height: calc(100vh - 244px);
+      min-height: 620px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    @media (max-width: 1100px) {
+      .main {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        position: static;
+      }
+
+      .compare-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .compare-grid.mobile {
+        grid-template-columns: minmax(0, 390px);
+      }
+    }
+
+    @media (max-width: 740px) {
+      .topbar {
+        grid-template-columns: 1fr;
+        padding: 16px;
+      }
+
+      .actions {
+        justify-content: flex-start;
+      }
+
+      .main {
+        padding: 12px;
+      }
+
+      .mode-controls {
+        grid-template-columns: 1fr;
+      }
+
+      .viewport {
+        padding: 10px;
+      }
+
+      .frame-shell,
+      .compare-frame {
+        height: 720px;
+        min-height: 720px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <div class="brand">
+        <p class="eyebrow">Client theme review</p>
+        <h1>StatLynk Theme Switcher</h1>
+      </div>
+      <div class="actions" aria-label="Review actions">
+        <button class="control" type="button" id="singleMode" aria-pressed="true">Single Preview</button>
+        <button class="control" type="button" id="compareMode" aria-pressed="false">Compare All</button>
+      </div>
+    </header>
+
+    <main class="main">
+      <aside class="sidebar" aria-label="Theme selection">
+        <section class="panel">
+          <div class="panel-header">
+            <h2 class="panel-title">Themes</h2>
+            <p class="panel-copy">Select a theme to view it full size, or compare all three together.</p>
+          </div>
+          <div class="theme-list" id="themeList"></div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-header">
+            <h2 class="panel-title">Viewport</h2>
+            <p class="panel-copy">Use desktop for layout review and mobile for responsive checks.</p>
+          </div>
+          <div class="mode-controls">
+            <button class="control" type="button" id="desktopView" aria-pressed="true">Desktop</button>
+            <button class="control" type="button" id="mobileView" aria-pressed="false">Mobile</button>
+          </div>
+        </section>
+      </aside>
+
+      <section class="preview-wrap" aria-label="Theme preview">
+        <div class="panel preview-toolbar">
+          <div class="preview-meta">
+            <h2 class="preview-title" id="previewTitle">Bright Blue</h2>
+            <p class="preview-subtitle" id="previewSubtitle">Crisp blue interface with compact listing controls.</p>
+          </div>
+          <div class="toolbar-actions">
+            <a class="link-button" id="openTheme" href="alokesh-color-code.html" target="_blank" rel="noopener">Open selected theme</a>
+            <button class="control" id="confirmTheme" type="button">Confirm selected theme</button>
+            <p class="confirm-note" id="confirmNote" aria-live="polite"></p>
+          </div>
+        </div>
+
+        <div class="viewport" id="singlePreview">
+          <div class="frame-shell" id="frameShell">
+            <iframe id="themeFrame" src="alokesh-color-code.html" title="Bright Blue theme preview"></iframe>
+          </div>
+        </div>
+
+        <div class="viewport hidden" id="comparePreview">
+          <div class="compare-grid" id="compareGrid"></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const themes = [
+      {
+        name: "Modern Red",
+        file: "modern-red.html",
+        desc: "Clean corporate theme with red accent styling.",
+        colors: ["#b20017", "#ffdad6", "#f9f9f9"]
+      },
+      {
+        name: "Forest Green",
+        file: "forest-green.html",
+        desc: "Premium green palette with richer property imagery.",
+        colors: ["#012d1d", "#a5d0b9", "#f4fafd"]
+      },
+      {
+        name: "Bright Blue",
+        file: "alokesh-color-code.html",
+        desc: "Crisp blue interface with compact listing controls.",
+        colors: ["#0050e2", "#dce9ff", "#f8f9ff"]
+      }
+    ];
+
+    const themeList = document.getElementById("themeList");
+    const previewTitle = document.getElementById("previewTitle");
+    const previewSubtitle = document.getElementById("previewSubtitle");
+    const openTheme = document.getElementById("openTheme");
+    const themeFrame = document.getElementById("themeFrame");
+    const frameShell = document.getElementById("frameShell");
+    const singlePreview = document.getElementById("singlePreview");
+    const comparePreview = document.getElementById("comparePreview");
+    const compareGrid = document.getElementById("compareGrid");
+    const singleMode = document.getElementById("singleMode");
+    const compareMode = document.getElementById("compareMode");
+    const desktopView = document.getElementById("desktopView");
+    const mobileView = document.getElementById("mobileView");
+    const confirmTheme = document.getElementById("confirmTheme");
+    const confirmNote = document.getElementById("confirmNote");
+
+    let selectedTheme = themes[2];
+    let isCompare = false;
+    let isMobile = false;
+
+    function renderThemeList() {
+      themeList.innerHTML = "";
+      themes.forEach((theme) => {
+        const card = document.createElement("article");
+        card.className = `theme-card${theme.file === selectedTheme.file ? " is-active" : ""}`;
+        card.innerHTML = `
+          <button class="theme-select" type="button" aria-pressed="${theme.file === selectedTheme.file ? "true" : "false"}">
+            <span class="swatches" aria-hidden="true">
+              ${theme.colors.map((color) => `<span style="background:${color}"></span>`).join("")}
+            </span>
+            <span>
+              <span class="theme-name">${theme.name}</span>
+              <span class="theme-desc">${theme.desc}</span>
+            </span>
+          </button>
+          <a class="open-link" href="${theme.file}" target="_blank" rel="noopener" aria-label="Open ${theme.name} theme">Open</a>
+        `;
+        card.querySelector(".theme-select").addEventListener("click", () => {
+          setTheme(theme);
+          setMode(false);
+        });
+        themeList.appendChild(card);
+      });
+    }
+
+    function renderCompareGrid() {
+      compareGrid.innerHTML = "";
+      themes.forEach((theme) => {
+        const card = document.createElement("article");
+        card.className = "compare-card";
+        card.innerHTML = `
+          <div class="compare-head">
+            <h3 class="compare-name">${theme.name}</h3>
+            <a class="open-link" href="${theme.file}" target="_blank" rel="noopener">Open</a>
+          </div>
+          <div class="compare-frame">
+            <iframe src="${theme.file}" title="${theme.name} comparison preview"></iframe>
+          </div>
+        `;
+        compareGrid.appendChild(card);
+      });
+    }
+
+    function setTheme(theme) {
+      selectedTheme = theme;
+      previewTitle.textContent = theme.name;
+      previewSubtitle.textContent = theme.desc;
+      openTheme.href = theme.file;
+      themeFrame.src = theme.file;
+      themeFrame.title = `${theme.name} theme preview`;
+      confirmNote.textContent = "";
+      renderThemeList();
+    }
+
+    function setMode(compare) {
+      isCompare = compare;
+      singleMode.setAttribute("aria-pressed", String(!isCompare));
+      compareMode.setAttribute("aria-pressed", String(isCompare));
+      singlePreview.classList.toggle("hidden", isCompare);
+      comparePreview.classList.toggle("hidden", !isCompare);
+    }
+
+    function setViewport(mobile) {
+      isMobile = mobile;
+      desktopView.setAttribute("aria-pressed", String(!isMobile));
+      mobileView.setAttribute("aria-pressed", String(isMobile));
+      frameShell.classList.toggle("mobile", isMobile);
+      compareGrid.classList.toggle("mobile", isMobile);
+    }
+
+    singleMode.addEventListener("click", () => setMode(false));
+    compareMode.addEventListener("click", () => setMode(true));
+    desktopView.addEventListener("click", () => setViewport(false));
+    mobileView.addEventListener("click", () => setViewport(true));
+    confirmTheme.addEventListener("click", () => {
+      confirmNote.textContent = `${selectedTheme.name} selected for client confirmation.`;
+    });
+
+    renderThemeList();
+    renderCompareGrid();
+  </script>
+</body>
+</html>
